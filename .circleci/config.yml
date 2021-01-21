@@ -1,11 +1,16 @@
 version: 2.1
 orbs:
   shiftleft: shiftleft/shiftleft@1.0
+jobs:
+  build:
+    machine: true
+    steps:
+      - shiftleft/analyze:
+          app: hello-shiftleft
+          target: target/hello-shiftleft-0.0.1.jar
+          language: java
 workflows:
   version: 2.1
   workflow:
     jobs:
-      - shiftleft/analyze:
-          app: helloshiftleft
-          target: target/hello-shiftleft-0.0.1.jar
-          language: java
+      - build
