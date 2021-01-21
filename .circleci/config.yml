@@ -1,17 +1,19 @@
 version: 2.1
+
 orbs:
+  maven: circleci/maven@0.0.12
   shiftleft: shiftleft/shiftleft@1.0
+
+workflows:
+  maven_test:
+    jobs:
+      - maven/test # checkout, build, test, and upload test results
 jobs:
   build:
     machine: true
     steps:
-      - run: mvn clean package
       - shiftleft/analyze:
           app: hello-shiftleft
           target: target/hello-shiftleft-0.0.1.jar
           language: java
-workflows:
-  version: 2.1
-  workflow:
-    jobs:
-      - build
+
