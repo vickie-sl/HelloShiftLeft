@@ -8,7 +8,6 @@ workflows:
   maven_test:
     jobs:
       - maven/test
-    steps:
       - shiftleft/analyze:
           app: hello-shiftleft
           target: target/hello-shiftleft-0.0.1.jar
