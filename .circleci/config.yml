@@ -6,14 +6,13 @@ jobs:
   build:
     machine: true
     steps:
-      - maven/test
+      - checkout
       - shiftleft/analyze:
           app: hello-shiftleft
           target: target/hello-shiftleft-0.0.1.jar
           language: java
 workflows:
-  version: 2.1
   workflow:
     jobs:
-      
+      - maven/package
       - build
