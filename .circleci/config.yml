@@ -5,6 +5,7 @@ jobs:
   build:
     machine: true
     steps:
+      - run: mvn clean package
       - shiftleft/analyze:
           app: hello-shiftleft
           target: target/hello-shiftleft-0.0.1.jar
